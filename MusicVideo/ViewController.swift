@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     func didLoadData(result:String) {
         
-        var alert = UIAlertController(title: (result), message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: (result), message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         
         let okAction = UIAlertAction(title: "Ok", style: .Default) { (action) -> Void in
             //do something if click ok

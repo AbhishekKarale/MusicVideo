@@ -32,16 +32,45 @@ class APIManager {
         let task = session.dataTaskWithURL(url) { (data, response, error) -> Void in
             
             //this is where we move background ---> move it to main thread. 
-            dispatch_async(dispatch_get_main_queue()) {
+           
                 if error != nil {
-                    completion(result: (error!.localizedDescription))
+                     dispatch_async(dispatch_get_main_queue()) {
+                        completion(result: (error!.localizedDescription))
+                    }
                 } else {
                     completion(result: "NSURLSession succesful")
-                    print(data)
+                    //print(data)
+                    
+                    //Got data- now need to convert it into JSON...
+                    
+                    do {
+                        
+                        if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String:AnyObject] {
+                            
+                            print(json)
+                            
+                            //send that we converted it back to main thread using a priority high!
+                            
+                            let priority = DISPATCH_QUEUE_PRIORITY_HIGH
+                            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                                dispatch_async(dispatch_get_main_queue()){
+                                    completion(result: "JSONSerialisation Succesful")
+                                }
+                            }
+                            
+                        }
+                        
+                    } catch {
+                        dispatch_async(dispatch_get_main_queue()){
+                            completion(result: "error in NSJSONSerialisation")
+                        }
+                        
+                    }
                 }
-            }
+            
             
         }
+        
         
         task.resume()
         
