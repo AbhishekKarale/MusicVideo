@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var videos = [Videos]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,22 +22,27 @@ class ViewController: UIViewController {
     }
     
     
-    func didLoadData(result:String) {
+    func didLoadData(videos: [Videos]) {
         
-        let alert = UIAlertController(title: (result), message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        self.videos = videos
         
-        let okAction = UIAlertAction(title: "Ok", style: .Default) { (action) -> Void in
-            //do something if click ok
+        for item in videos {
             
+            print("name = \(item.vName)")
         }
         
-        alert.addAction(okAction)
-        self.presentViewController(alert, animated: true, completion: nil)
-        
+        for (index, item) in videos.enumerate() {
+            
+            print("\(index) name is \(item.vName)")
+            
+        }
+
         
 
         
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
