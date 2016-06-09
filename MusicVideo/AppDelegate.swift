@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         internetCheck = Reachability.reachabilityForInternetConnection()
         internetCheck?.startNotifier()
         
+        statusChangedWithReachability(internetCheck!)
+        
         
         return true
     }
@@ -40,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         reachability = notification.object as? Reachability
         statusChangedWithReachability(reachability!)
+        
         
     }
     

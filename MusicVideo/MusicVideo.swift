@@ -11,7 +11,7 @@ import Foundation
 class Videos {
     
     //Data Encapsulation
-    
+    // SETTERS:
     private var _vName:String
     private var _vImageUrl:String
     private var _vVideoUrl:String
