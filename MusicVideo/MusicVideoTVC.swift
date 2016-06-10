@@ -11,6 +11,7 @@ import UIKit
 class MusicVideoTVC: UITableViewController {
 
     var videos = [Videos]()
+   
     
     
     override func viewDidLoad() {
@@ -20,12 +21,6 @@ class MusicVideoTVC: UITableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         
         reachabilityStatusChanged()
-        
-        
-        //Call api-
-        let api = APIManager()
-        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=50/json", completion: didLoadData)
-        
         
         
     }
@@ -67,14 +62,51 @@ class MusicVideoTVC: UITableViewController {
             
         case NOACCESS :
             view.backgroundColor = UIColor.redColor()
-           // displayLabel.text = "No Internet"
-        case WIFI :
+            
+            //move back to Main Queue
+            
+            dispatch_async(dispatch_get_main_queue()) {
+            let alert = UIAlertController(title: "No internet Access", message: "Please make sure you are connected to the internet", preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) in
+                
+                print ("Cancel")
+                
+            })
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: { (action) in
+                
+                print("delete")
+                
+            })
+            
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
+                
+                print("ok")
+                
+            })
+            
+           
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            alert.addAction(deleteAction)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+        default:
             view.backgroundColor = UIColor.greenColor()
-            //displayLabel.text = "Reachable with WIFI"
-        case WWAN :
-            view.backgroundColor = UIColor.yellowColor()
-            //displayLabel.text = "Reachable with Cellular"
-        default:return
+            
+            if videos.count > 0 {
+                
+                print("do not refresh API")
+                
+            } else {
+                
+                runAPI()
+                
+            }
+            
             
         }
         
@@ -84,11 +116,24 @@ class MusicVideoTVC: UITableViewController {
     }
     
     
+    func runAPI() {
+        
+        //Call api-
+        let api = APIManager()
+        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=50/json", completion: didLoadData)
+        
+
+    }
+    
+    
     // Is called just as the object is about to be deallocated.
     deinit {
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
     }
+    
+    
+    
     
 
     // MARK: - Table view data source
