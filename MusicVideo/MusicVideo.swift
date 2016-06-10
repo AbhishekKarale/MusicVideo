@@ -23,6 +23,8 @@ class Videos {
     private var _vLinkToiTunes:String
     private var _vReleaseDte: String
     
+    var vRank = 0
+    
     
     //This variable gets created from the UI
     
