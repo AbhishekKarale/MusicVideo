@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B01286561D0D6CD100382F8F /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01286551D0D6CD100382F8F /* SettingsTVC.swift */; };
 		B028ACAF1D0C2289008852AD /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028ACAE1D0C2289008852AD /* MusicVideoDetailVC.swift */; };
 		B02DC3031D09756E009EC05E /* MusicVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02DC3021D09756E009EC05E /* MusicVideoTVC.swift */; };
 		B0B0BCE51D0A9F6200B910EA /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0BCE41D0A9F6200B910EA /* MusicVideoTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B01286551D0D6CD100382F8F /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		B028ACAE1D0C2289008852AD /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
 		B02DC3021D09756E009EC05E /* MusicVideoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTVC.swift; sourceTree = "<group>"; };
 		B0B0BCE41D0A9F6200B910EA /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,10 +155,11 @@
 		B0C0EA1E1CE1B7DB0016D095 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B02DC3021D09756E009EC05E /* MusicVideoTVC.swift */,
+				B01286551D0D6CD100382F8F /* SettingsTVC.swift */,
 				B028ACAE1D0C2289008852AD /* MusicVideoDetailVC.swift */,
 				B0B0BCE41D0A9F6200B910EA /* MusicVideoTableViewCell.swift */,
 				B0C0E9F11CE1B59C0016D095 /* ViewController.swift */,
-				B02DC3021D09756E009EC05E /* MusicVideoTVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				B0C0E9F01CE1B59C0016D095 /* AppDelegate.swift in Sources */,
 				B0D98DE11CE4B956008CD6CA /* Reachability.m in Sources */,
 				B0C0EA651CE24CDF0016D095 /* Constants.swift in Sources */,
+				B01286561D0D6CD100382F8F /* SettingsTVC.swift in Sources */,
 				B02DC3031D09756E009EC05E /* MusicVideoTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
