@@ -142,12 +142,53 @@
                             <constraint firstItem="6xM-Ki-JBj" firstAttribute="top" secondItem="pNL-nR-dMy" secondAttribute="bottom" constant="1" id="SaN-Xj-Dqe"/>
                             <constraint firstItem="pNL-nR-dMy" firstAttribute="leading" secondItem="ycN-Ty-gMc" secondAttribute="leading" id="T2U-Kc-d5B"/>
                             <constraint firstItem="ycN-Ty-gMc" firstAttribute="top" secondItem="6xM-Ki-JBj" secondAttribute="bottom" constant="8" symbolic="YES" id="U79-KM-ne8"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="pNL-nR-dMy" secondAttribute="bottom" constant="38" id="Ywd-Rf-B4s"/>
                             <constraint firstItem="QWc-a1-KqE" firstAttribute="leading" secondItem="Gfz-ab-Mpi" secondAttribute="leadingMargin" constant="-13" id="coI-4T-ACP"/>
                             <constraint firstItem="ycN-Ty-gMc" firstAttribute="bottom" secondItem="EtL-gs-5Lz" secondAttribute="top" id="coR-dw-6F3"/>
+                            <constraint firstItem="pNL-nR-dMy" firstAttribute="top" secondItem="5dc-Dx-8yT" secondAttribute="bottom" id="dhP-r6-CFW"/>
                             <constraint firstItem="QWc-a1-KqE" firstAttribute="centerX" secondItem="pNL-nR-dMy" secondAttribute="centerX" id="j3W-RS-5JG"/>
+                            <constraint firstAttribute="trailing" secondItem="pNL-nR-dMy" secondAttribute="trailing" id="m6e-dc-asN"/>
                             <constraint firstItem="6xM-Ki-JBj" firstAttribute="centerY" secondItem="AFz-qA-HTL" secondAttribute="centerY" id="oFL-tf-jaT"/>
+                            <constraint firstItem="pNL-nR-dMy" firstAttribute="centerX" secondItem="Gfz-ab-Mpi" secondAttribute="centerX" id="r5i-Al-U7Q"/>
                             <constraint firstItem="6xM-Ki-JBj" firstAttribute="baseline" secondItem="AFz-qA-HTL" secondAttribute="baseline" id="ur0-ud-WaC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ywd-Rf-B4s"/>
+                                <exclude reference="dhP-r6-CFW"/>
+                                <exclude reference="m6e-dc-asN"/>
+                                <exclude reference="r5i-Al-U7Q"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="QWc-a1-KqE"/>
+                                <exclude reference="6xM-Ki-JBj"/>
+                                <exclude reference="AFz-qA-HTL"/>
+                                <exclude reference="ycN-Ty-gMc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0yq-bW-rmv"/>
+                                <exclude reference="3J3-s1-Apk"/>
+                                <exclude reference="coI-4T-ACP"/>
+                                <exclude reference="j3W-RS-5JG"/>
+                                <exclude reference="9oP-vV-49e"/>
+                                <exclude reference="SaN-Xj-Dqe"/>
+                                <exclude reference="oFL-tf-jaT"/>
+                                <exclude reference="ur0-ud-WaC"/>
+                                <exclude reference="U79-KM-ne8"/>
+                                <exclude reference="coR-dw-6F3"/>
+                                <exclude reference="KVL-4b-9cr"/>
+                                <exclude reference="2Ja-GS-cfv"/>
+                                <exclude reference="DEu-xM-w5b"/>
+                                <exclude reference="OLJ-QJ-bS6"/>
+                                <exclude reference="T2U-Kc-d5B"/>
+                                <include reference="Ywd-Rf-B4s"/>
+                                <include reference="dhP-r6-CFW"/>
+                                <include reference="m6e-dc-asN"/>
+                                <include reference="r5i-Al-U7Q"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="play" id="96Q-PH-4hu">
@@ -168,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ifk-sl-Tsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="440"/>
+            <point key="canvasLocation" x="1025" y="439.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rf6-XV-Dcy">
