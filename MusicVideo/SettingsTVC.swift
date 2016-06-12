@@ -37,7 +37,33 @@ class SettingsTVC: UITableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTVC.preferredFontChange), name: UIContentSizeCategoryDidChangeNotification , object: nil)
         
         
+        touchID.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        
+        title = "Settings"
     }
+    
+    
+    
+    @IBAction func touchIdSec(sender: UISwitch) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if touchID.on {
+            
+            defaults.setBool(true, forKey: "SecSetting")
+            
+        } else {
+            
+            defaults.setBool(false, forKey: "SecSetting")
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
     
     
     func preferredFontChange() {

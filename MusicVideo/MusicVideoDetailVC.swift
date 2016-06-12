@@ -46,7 +46,7 @@ class MusicVideoDetailVC: UIViewController {
             videoImage.image = UIImage(named: "imageNotAvailable")
         }
         
-        
+      
         
     }
 

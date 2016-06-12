@@ -162,6 +162,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1c-AV-U1n">
                                                     <rect key="frame" x="535" y="26" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchIdSec:" destination="puf-lP-0d3" eventType="valueChanged" id="T4F-64-gJ4"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -359,13 +362,6 @@
                                 <exclude reference="3J3-s1-Apk"/>
                                 <exclude reference="coI-4T-ACP"/>
                                 <exclude reference="j3W-RS-5JG"/>
-                                <exclude reference="9oP-vV-49e"/>
-                                <exclude reference="SaN-Xj-Dqe"/>
-                                <exclude reference="oFL-tf-jaT"/>
-                                <exclude reference="ur0-ud-WaC"/>
-                                <exclude reference="U79-KM-ne8"/>
-                                <exclude reference="coR-dw-6F3"/>
-                                <exclude reference="KVL-4b-9cr"/>
                                 <exclude reference="2Ja-GS-cfv"/>
                                 <exclude reference="DEu-xM-w5b"/>
                                 <exclude reference="OLJ-QJ-bS6"/>
@@ -374,6 +370,13 @@
                                 <include reference="dhP-r6-CFW"/>
                                 <include reference="m6e-dc-asN"/>
                                 <include reference="r5i-Al-U7Q"/>
+                                <exclude reference="9oP-vV-49e"/>
+                                <exclude reference="SaN-Xj-Dqe"/>
+                                <exclude reference="oFL-tf-jaT"/>
+                                <exclude reference="ur0-ud-WaC"/>
+                                <exclude reference="U79-KM-ne8"/>
+                                <exclude reference="coR-dw-6F3"/>
+                                <exclude reference="KVL-4b-9cr"/>
                             </mask>
                         </variation>
                     </view>
