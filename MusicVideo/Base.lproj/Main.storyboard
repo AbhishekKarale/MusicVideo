@@ -119,6 +119,9 @@
                                                 <constraint firstItem="ge3-Mo-qJH" firstAttribute="leading" secondItem="c1i-yp-JTl" secondAttribute="leadingMargin" id="zTm-VP-1hW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Arg-CM-8aV" kind="show" id="Kpj-5h-sml"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bFM-pw-S1O">
                                         <rect key="frame" x="0.0" y="148" width="600" height="84"/>
@@ -269,6 +272,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1o-QV-giE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="351" y="1195"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="Z92-Ay-2BT">
+            <objects>
+                <viewController title="About" id="Arg-CM-8aV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rjv-5B-zGv"/>
+                        <viewControllerLayoutGuide type="bottom" id="3sG-eJ-NDH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DKo-a4-dNQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is about the app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-ek-w8h">
+                                <rect key="frame" x="220" y="130" width="161" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="UNY-k7-MG9"/>
+                                    <constraint firstAttribute="height" constant="21" id="dmI-7T-7fW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z0g-ek-w8h" firstAttribute="top" secondItem="rjv-5B-zGv" secondAttribute="bottom" constant="66" id="123-wX-h2X"/>
+                            <constraint firstItem="Z0g-ek-w8h" firstAttribute="centerX" secondItem="DKo-a4-dNQ" secondAttribute="centerX" id="Ieh-YL-cat"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7WX-MZ-JJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032" y="1195"/>
         </scene>
         <!--Music Video DetailVC-->
         <scene sceneID="Vn6-QW-pMg">
