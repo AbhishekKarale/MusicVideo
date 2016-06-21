@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
+class MusicVideoTVC: UITableViewController {
 
     var videos = [Videos]()
     
@@ -23,43 +23,36 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.preferredFontChange), name: UIContentSizeCategoryDidChangeNotification , object: nil)
         
-
-        
         reachabilityStatusChanged()
         
-        
     }
+    
+    
     
     
     func preferredFontChange () {
-        
-        
         print ("The preferred font has changed")
-        
-        
     }
+    
+    
     
     
     func didLoadData(videos: [Videos]) {
         
         print(reachabilityStatus)
-        
         self.videos = videos
         
         for item in videos {
-            
             print("name = \(item.vName)")
         }
         
+        
         for (index, item) in videos.enumerate() {
-            
             print("\(index) name is \(item.vName)")
-            
         }
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
@@ -75,17 +68,14 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
         
         resultSearchController.dimsBackgroundDuringPresentation = false   // no dimming of contents
         
-        resultSearchController.searchBar.placeholder = "Search for Artist"
+        resultSearchController.searchBar.placeholder = "Search for Artist, Name, Rank"
         
         resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.Prominent
         
         // add the search bar to your tableview
         tableView.tableHeaderView = resultSearchController.searchBar
         
-        
-        
         tableView.reloadData()
-        
         
     }
     
@@ -93,41 +83,34 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
+    
     
     
     func reachabilityStatusChanged() {
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
         switch reachabilityStatus {
             
         case NOACCESS :
-           // view.backgroundColor = UIColor.redColor()
-            
             //move back to Main Queue
-            
             dispatch_async(dispatch_get_main_queue()) {
             let alert = UIAlertController(title: "No internet Access", message: "Please make sure you are connected to the internet", preferredStyle: .Alert)
-            
+                
             let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) in
-                
                 print ("Cancel")
-                
             })
             
             let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: { (action) in
-                
                 print("delete")
-                
             })
             
             let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
-                
                 print("ok")
-                
             })
             
-           
             alert.addAction(okAction)
             alert.addAction(cancelAction)
             alert.addAction(deleteAction)
@@ -135,19 +118,32 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
             self.presentViewController(alert, animated: true, completion: nil)
             }
             
-        default:
-            //view.backgroundColor = UIColor.greenColor()
-            
+        case WIFI :
+            defaults.setBool(true, forKey: "bestImage")
+            // Internet present- run API
             if videos.count > 0 {
-                
                 print("do not refresh API")
-                
             } else {
-                
                 runAPI()
-                
             }
             
+        case WWAN :
+            defaults.setBool(false, forKey: "bestImage")
+            // Internet present- run API
+            if videos.count > 0 {
+                print("do not refresh API")
+            } else {
+                runAPI()
+            }
+            
+        default:
+            
+            // Internet present- run API
+            if videos.count > 0 {
+                print("do not refresh API")
+            } else {
+                runAPI()
+            }
             
         }
         
@@ -174,10 +170,8 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     func getAPICount() {
         
         if (NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil) {
-            
             let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
             limit = theValue
-            
         }
         
         let formatter = NSDateFormatter()
@@ -203,9 +197,7 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     
     // Is called just as the object is about to be deallocated.
     deinit {
-        
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
-        
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
@@ -216,7 +208,6 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
 
@@ -239,7 +230,6 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(storyboard.cellReuseIdentifier, forIndexPath: indexPath) as! MusicVideoTableViewCell
-
         
         if resultSearchController.active {
             cell.video = filterSearch[indexPath.row]
@@ -247,8 +237,6 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
         else {
             cell.video = videos[indexPath.row]
         }
-        
-
         
         return cell
     }
@@ -290,6 +278,9 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     */
 
     
+    
+    
+    
     // MARK: - Navigation
 
     
@@ -319,21 +310,16 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     }
     
     
-    // MARK : Search Controller
+  
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-        searchController.searchBar.text?.lowercaseString
-        filterSearch(searchController.searchBar.text!)
-        
-    }
+    
     
     
     func filterSearch(searchText : String) {
         
         filterSearch = videos.filter { videos in
             
-            return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString)
+            return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString) || videos.vName.lowercaseString.containsString(searchText.lowercaseString) || "\(videos.vRank)".lowercaseString.containsString(searchText.lowercaseString)
             
         }
         
@@ -342,3 +328,26 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     
 
 }
+
+
+
+
+
+
+  // MARK : Search Controller ( CLASS EXTENSION! :)
+
+extension MusicVideoTVC : UISearchResultsUpdating {
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        searchController.searchBar.text?.lowercaseString
+        filterSearch(searchController.searchBar.text!)
+        
+    }
+    
+}
+
+
+
+
+

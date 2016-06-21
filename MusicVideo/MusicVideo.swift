@@ -102,7 +102,12 @@ class Videos {
         image = img[2] as? JSONDictionary,
         immage = image["label"] as? String {
             
-            _vImageUrl = immage.stringByReplacingOccurrencesOfString("100x100", withString: "600x600")
+            if NSUserDefaults.standardUserDefaults().boolForKey("bestImage") == true {
+                _vImageUrl = immage.stringByReplacingOccurrencesOfString("100x100", withString: "600x600")
+            }
+            else {
+                _vImageUrl = immage.stringByReplacingOccurrencesOfString("100x100", withString: "300x300")
+            }
             
         } else {
             

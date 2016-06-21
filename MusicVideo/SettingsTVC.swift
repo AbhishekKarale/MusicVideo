@@ -22,6 +22,8 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var bestImageDisplay: UILabel!
     
+    @IBOutlet weak var bestImageSwitch: UISwitch!
+    
     @IBOutlet weak var APICnt: UILabel!
     
     @IBOutlet weak var sliderCnt: UISlider!
@@ -41,6 +43,8 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         
         touchID.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
         
+        bestImageSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey("bestImage")
+        
         if NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil {
             
             let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
@@ -53,6 +57,8 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
             
             
         }
+        
+        
         
         
         title = "Settings"
@@ -83,6 +89,22 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
             
             defaults.setBool(false, forKey: "SecSetting")
             
+        }
+        
+        
+    }
+    
+    
+    
+    @IBAction func bestImageSwitched(sender: UISwitch) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if bestImageSwitch.on {
+            defaults.setBool(true, forKey: "bestImage")
+        }
+        else {
+            defaults.setBool(false, forKey: "bestImage")
         }
         
         

@@ -194,6 +194,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="L5g-pR-eE4">
                                                     <rect key="frame" x="535" y="31" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="bestImageSwitched:" destination="puf-lP-0d3" eventType="valueChanged" id="HzR-M9-Yps"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Image Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egz-NT-G6F">
                                                     <rect key="frame" x="8" y="26" width="255" height="41"/>
@@ -283,6 +286,7 @@
                         <outlet property="APICnt" destination="4bp-sk-m5b" id="b3T-bM-wcn"/>
                         <outlet property="aboutDisplay" destination="ge3-Mo-qJH" id="1cN-TD-4f8"/>
                         <outlet property="bestImageDisplay" destination="egz-NT-G6F" id="ICW-L3-P3B"/>
+                        <outlet property="bestImageSwitch" destination="L5g-pR-eE4" id="7HU-Eh-JP6"/>
                         <outlet property="feedBackDisplay" destination="Taz-Ti-eJe" id="kFr-Cv-EAw"/>
                         <outlet property="numberOfVideosDisplay" destination="RVA-0h-RSK" id="tti-82-wym"/>
                         <outlet property="securityDisplay" destination="X0E-fF-tgy" id="gcI-V4-dYg"/>
