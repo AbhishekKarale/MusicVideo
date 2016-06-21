@@ -222,17 +222,31 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-sk-m5b">
-                                                    <rect key="frame" x="8" y="8" width="584" height="75"/>
+                                                    <rect key="frame" x="502" y="8" width="90" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="AFJ-8Y-rXF"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Music Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVA-0h-RSK">
+                                                    <rect key="frame" x="8" y="31" width="167" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="167" id="ZjZ-9Y-hxn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4bp-sk-m5b" firstAttribute="top" secondItem="Q7O-W2-DlZ" secondAttribute="topMargin" id="8LF-EG-UwL"/>
-                                                <constraint firstAttribute="bottom" secondItem="4bp-sk-m5b" secondAttribute="bottom" id="BiL-Xk-Idl"/>
-                                                <constraint firstItem="4bp-sk-m5b" firstAttribute="leading" secondItem="Q7O-W2-DlZ" secondAttribute="leadingMargin" id="Goj-4n-Rv2"/>
-                                                <constraint firstItem="4bp-sk-m5b" firstAttribute="trailing" secondItem="Q7O-W2-DlZ" secondAttribute="trailingMargin" id="mBz-XV-ggN"/>
+                                                <constraint firstItem="RVA-0h-RSK" firstAttribute="leading" secondItem="Q7O-W2-DlZ" secondAttribute="leadingMargin" id="CPJ-nm-Dy6"/>
+                                                <constraint firstItem="RVA-0h-RSK" firstAttribute="centerY" secondItem="Q7O-W2-DlZ" secondAttribute="centerY" id="Crj-bj-Lor"/>
+                                                <constraint firstItem="4bp-sk-m5b" firstAttribute="top" secondItem="Q7O-W2-DlZ" secondAttribute="topMargin" id="LfA-PW-ZOP"/>
+                                                <constraint firstAttribute="bottom" secondItem="4bp-sk-m5b" secondAttribute="bottom" id="oL2-p2-9Sk"/>
+                                                <constraint firstItem="4bp-sk-m5b" firstAttribute="trailing" secondItem="Q7O-W2-DlZ" secondAttribute="trailingMargin" id="qhG-AF-69P"/>
+                                                <constraint firstItem="RVA-0h-RSK" firstAttribute="top" secondItem="Q7O-W2-DlZ" secondAttribute="topMargin" constant="23" id="wST-nE-E2C"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -270,6 +284,7 @@
                         <outlet property="aboutDisplay" destination="ge3-Mo-qJH" id="1cN-TD-4f8"/>
                         <outlet property="bestImageDisplay" destination="egz-NT-G6F" id="ICW-L3-P3B"/>
                         <outlet property="feedBackDisplay" destination="Taz-Ti-eJe" id="kFr-Cv-EAw"/>
+                        <outlet property="numberOfVideosDisplay" destination="RVA-0h-RSK" id="tti-82-wym"/>
                         <outlet property="securityDisplay" destination="X0E-fF-tgy" id="gcI-V4-dYg"/>
                         <outlet property="sliderCnt" destination="uhO-Fw-e3y" id="wAx-Wu-tyM"/>
                         <outlet property="touchID" destination="i1c-AV-U1n" id="upZ-Er-TdA"/>
@@ -436,6 +451,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Aqi-Q6-NmW"/>
                         <barButtonItem systemItem="action" id="tTn-6V-gTh">
                             <color key="tintColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="socialMedia:" destination="eJz-fC-2b3" id="sM4-ax-COQ"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <connections>
